@@ -1,0 +1,19 @@
+
+{It has moved __ much today. On average, it moves ____ this amount daily..    // all in percentage of yesterdays close price. }
+//DAILY CHART/RADARSCREEN
+inputs:
+	ATRLength( 14 );
+Vars:
+	ATR(0),
+	Rangee(0),
+	MovedToday(0),
+	MovesDaily(0);
+
+ATR = AvgTrueRange(Atrlength);
+Rangee = Range;
+
+MovedToday = trueRange / close[1];
+MovesDaily = ATR / close[1];
+
+Plot1(MovedToday, !("RangeToday"));
+Plot2(MovesDaily, !("AvgRange")); 
